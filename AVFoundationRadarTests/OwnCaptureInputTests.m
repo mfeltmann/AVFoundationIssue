@@ -26,7 +26,7 @@
   [testSession addOutput:testOutput];
 
   XCTAssertTrue([testSession canAddInput:testInput], @"I expect the session to be able to add my own input instance.");
-  [testSession addInput:testInput];
+  XCTAssertNoThrow([testSession addInput:testInput], @"I'm not expecting this to throw since nowhere I am told which AVCaptureInput instances are supported.");
 
   [testSession commitConfiguration];
 }
